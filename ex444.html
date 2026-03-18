@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanes Fruit -  Distribuidora de Alimentos LTDA. Especialista em FLV (Hortifruti) no Rio de Janeiro. Qualidade, pontualidade e transparência.">
+    <meta name="author" content="Sanes Fruit">
+    <title>Sanes Fruit | Qualidade que seu negócio merece</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sanes-dark-green: #1B4332;
+            --sanes-mid-green: #2D6A4F;
+            --sanes-lime: #D9ED92;
+            --sanes-orange: #F3722C;
+            --sanes-white: #FFFFFF;
+            --sanes-gray: #F8F9FA;
+        }
+
+        body { font-family: 'Inter', sans-serif; color: #333; scroll-behavior: smooth; }
+
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--sanes-orange); color: white; padding: 8px; z-index: 1001; text-decoration: none; }
+        .skip-link:focus { top: 0; }
+
+        .navbar { background: var(--sanes-white); border-bottom: 4px solid var(--sanes-dark-green); padding: 1rem 0; }
+        .navbar-brand img { height: 55px; width: auto; }
+        .nav-link { color: var(--sanes-dark-green) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover { color: var(--sanes-orange) !important; }
+
+        .hero { 
+            background: linear-gradient(rgba(27, 67, 50, 0.9), rgba(27, 67, 50, 0.7)), 
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover;
+            background-position: center;
+            color: var(--sanes-white);
+            padding: 120px 0;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .fw-800 { font-weight: 800; }
+        .btn-sanes { background: var(--sanes-orange); color: white; border: none; padding: 15px 35px; border-radius: 8px; font-weight: 800; transition: 0.3s; }
+        .btn-sanes:hover { background: #d65d1d; transform: translateY(-2px); color: white; }
+
+        .card-mvv { border: none; border-radius: 15px; transition: 0.3s; background: var(--sanes-white); height: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card-mvv:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        
+        .card-feature { border: none; border-radius: 12px; background: var(--sanes-white); box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; }
+        .card-feature:hover { transform: translateY(-10px); }
+        
+        .icon-box { background: var(--sanes-lime); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; }
+
+        .budget-section { background: var(--sanes-gray); padding: 80px 0; }
+        .form-control { border-radius: 8px; padding: 12px; border: 1px solid #ddd; }
+        .form-control:focus { border-color: var(--sanes-mid-green); box-shadow: 0 0 0 0.25rem rgba(45, 106, 79, 0.1); }
+
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+
+        footer { background: var(--sanes-dark-green); color: var(--sanes-white); padding: 50px 0; }
+        .check-icon { color: var(--sanes-lime); margin-right: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top" role="navigation">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="sanes3.png" style="width: 60%; max-width: 500px;  height: auto; " alt="Logotipo Sanes Fruit"  class="logo-img">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSanes">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navSanes">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#diretrizes">Diretrizes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#beneficios">Benefícios</a></li>
+                        <li class="nav-item"><a class="btn btn-sanes ms-lg-3" href="#contato">Solicitar Cotação</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container text-center text-lg-start">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h1 id="dyn_titulo" class="display-3 fw-800 mb-3">Carregando...</h1>
+                        <p id="dyn_subtitulo" class="lead mb-4"></p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                            <a href="#contato" class="btn btn-sanes">QUERO SER PARCEIRO</a>
+                            <a href="#quem-somos" class="btn btn-outline-light px-4 py-3 border-2 fw-bold">CONHECER A SANES</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quem-somos" class="py-5 bg-white">
+            <div class="container py-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <h2 class="fw-800 mb-4" style="color: var(--sanes-dark-green);">Quem Somos</h2>
+                        <p class="lead mb-4" style="color: var(--sanes-mid-green); font-weight: 600;">
+                            A Sanes Fruit é uma empresa especializada no fornecimento e distribuição de hortifruti, atuando em todo o Rio de Janeiro.
+                        </p>
+                        <p class="text-muted">
+                            Contamos com profissionais atuantes no mercado de <strong>F L V (Frutas, Legumes e Verduras) há mais de 25 anos</strong>. Trabalhamos focados na excelência nos serviços prestados, superando as expectativas dos clientes com qualidade, pontualidade e transparência.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-4 rounded-4 shadow-lg" style="background: var(--sanes-dark-green); color: white;">
+                            <h3 class="fw-800 h4 mb-4" style="color: var(--sanes-lime);">Logística de Excelência</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3 d-flex align-items-start">
+                                    <span class="check-icon">✓</span>
+                                    <span><strong>Entregas Pontuais:</strong> Entregas em todo o Rio de Janeiro com agilidade.</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <span class="check-icon">✓</span>
+                                    <span><strong>Qualidade e Frescor:</strong> Seleção feita durante a madrugada para maior durabilidade.</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <span class="check-icon">✓</span>
+                                    <span><strong>Atendimento Personalizado:</strong> Frota dedicada para cada necessidade.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <section id="diretrizes" class="py-5" style="background-color: var(--sanes-gray);">
+        <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-800" style="color: var(--sanes-dark-green);">Nossas Diretrizes</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card-mvv p-4 text-center">
+                    <div class="fs-1 mb-3">🥦</div> 
+                    <h3 class="fw-bold h5" style="color: var(--sanes-dark-green);">MISSÃO</h3>
+                    <p class="small" style="color: #212529;">Entregar produtos e serviço, superando as expectativas dos nossos clientes e promover o desenvolvimento profissional dos nossos colaboradores.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-mvv p-4 text-center">
+                    <div class="fs-1 mb-3">🍎</div> 
+                    <h3 class="fw-bold h5" style="color: var(--sanes-dark-green);">VISÃO</h3>
+                    <p class="small" style="color: #212529;">Ser referência no mercado de FLV no estado do Rio de Janeiro, associando a nossa marca a atendimento, qualidade, pontualidade e transparência.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-mvv p-4 text-center">
+                    <div class="fs-1 mb-3">🍊</div> 
+                    <h3 class="fw-bold h5" style="color: var(--sanes-dark-green);">VALORES</h3>
+                    <p class="small" style="color: #212529;">Comprometimento, excelência, profissionalismo, credibilidade, integridade, honestidade e transparência nas relações.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+
+        <section id="beneficios" class="py-5 bg-white">
+            <div class="container py-5 text-center">
+                <h2 class="fw-800 mb-5" style="color: var(--sanes-dark-green);">Diferenciais Sanes Fruit</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="card-feature p-4">
+                            <div class="icon-box mx-auto">🚚</div>
+                            <h3 class="h5 fw-bold">Frete Grátis</h3>
+                            <p class="text-muted">Entregas sem custo adicional em todo o estado do Rio de Janeiro.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="card-feature p-4">
+                            <div class="icon-box mx-auto">⏱</div>
+                            <h3 class="h5 fw-bold">Pontualidade</h3>
+                            <p class="text-muted">Entregamos rigorosamente no horário combinado.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="card-feature p-4">
+                            <div class="icon-box mx-auto">💎</div>
+                            <h3 class="h5 fw-bold">Qualidade FLV</h3>
+                            <p class="text-muted">Produtos frescos que garantem rendimento e durabilidade superior.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="budget-section">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5">
+                        <h2 class="fw-800" style="color: var(--sanes-dark-green);">Solicite sua Cotação</h2>
+                        <p class="mt-4 text-muted">Fale com quem tem mais de 25 anos de experiência no mercado de FLV.</p>
+                        <div class="mt-5">
+                            <p class="mb-1 fw-bold">Sanes Fruit (Rdan Distribuidora)</p>
+                            <p class="text-muted small">CNPJ: 57.931.153/0001-70<br>Rio de Janeiro - RJ</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="card p-4 border-0 shadow-sm">
+                            <form id="formOrcamento">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="nome" class="form-label">Nome/Empresa</label>
+                                        <input type="text" id="nome" name="nome" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="tel" class="form-label">WhatsApp</label>
+                                        <input type="tel" id="tel" name="telefone" class="form-control" placeholder="(21) 9..." required>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="msg" class="form-label">O que você precisa?</label>
+                                    <textarea id="msg" name="mensagem" class="form-control" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" id="btnEnviar" class="btn btn-sanes w-100">SOLICITAR COTAÇÃO AGORA</button>
+                            </form>
+                            <div id="feedback" class="mt-3 text-center"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p class="fw-800 h4 mb-4">Sanes Fruit</p>
+            <p>© 2026 Distribuidora de Alimentos LTDA.</p>
+            <p>Whatsapp 55 21 99147-3130</p>
+            <p class="small opacity-75">Rio de Janeiro - RJ | Qualidade, Pontualidade e Transparência</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5521991473130" class="whatsapp-btn" target="_blank">
+        <svg width="35" height="35" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        async function fetchContent() {
+            try {
+                const response = await fetch('api/index.php?route=get_home');
+                const data = await response.json();
+                document.getElementById('dyn_titulo').innerText = data.hero_titulo || "Qualidade direto do campo para seu negócio.";
+                document.getElementById('dyn_subtitulo').innerText = data.hero_subtitulo || "Distribuição de hortifruti com excelência e transparência em todo o RJ.";
+            } catch (error) {
+                document.getElementById('dyn_titulo').innerText = "Qualidade direto do campo para seu negócio.";
+                document.getElementById('dyn_subtitulo').innerText = "Distribuição de hortifruti com excelência e transparência em todo o Rio de Janeiro.";
+            }
+        }
+
+        document.getElementById('formOrcamento').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnEnviar');
+            const feedback = document.getElementById('feedback');
+            btn.disabled = true;
+            btn.innerHTML = "Enviando...";
+
+            try {
+                const formData = new FormData(this);
+                const response = await fetch('api/index.php?route=post_budget', { method: 'POST', body: formData });
+                const res = await response.json();
+                if(res.status === 'sucesso') {
+                    feedback.className = "mt-3 text-success fw-bold";
+                    feedback.innerText = "Orçamento enviado! A equipe comercial entrará em contato.";
+                    this.reset();
+                }
+            } catch (err) {
+                feedback.className = "mt-3 text-danger";
+                feedback.innerText = "Houve um erro. Tente o botão do WhatsApp.";
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = "SOLICITAR COTAÇÃO AGORA";
+            }
+        });
+
+        window.onload = fetchContent;
+    </script>
+</body>
+</html>
