@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanes Fruit - Distribuidora de Alimentos LTDA. Especialista em Hortifruti no Rio de Janeiro.">
+    <title>Sanes Fruit | Qualidade e Pontualidade</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sanes-green: #1B4332;
+            --sanes-accent: #2D6A4F;
+            --sanes-lime: #D9ED92;
+            --sanes-orange: #F3722C;
+            --sanes-white: #FFFFFF;
+        }
+
+        body { font-family: 'Inter', sans-serif; color: #333; background-color: #fcfcfc; }
+
+        /* Acessibilidade WCAG */
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--sanes-orange); color: white; padding: 8px; z-index: 1001; }
+        .skip-link:focus { top: 0; }
+
+        /* Navbar */
+        .navbar { background: var(--sanes-white); border-bottom: 4px solid var(--sanes-green); }
+        .logo-img { height: 50px; }
+
+        /* Hero Dinâmico */
+        .hero { 
+            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), 
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover; color: white; padding: 100px 0;
+        }
+
+        /* UI/UX: Botão WhatsApp */
+        .btn-whatsapp { 
+            background-color: #25d366; color: white; border: none; 
+            padding: 12px 25px; border-radius: 8px; font-weight: 800;
+        }
+        .btn-whatsapp:hover { background-color: #128C7E; color: white; }
+
+        .card-sanes { border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        
+        footer { background: var(--sanes-green); color: white; padding: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top" role="navigation">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/14132296193571721020_0" alt="Logo Sanes Fruit" class="logo-img">
+                </a>
+                <div class="ms-auto d-none d-lg-block">
+                    <span class="fw-bold" style="color: var(--sanes-green)">Distribuidora de Alimentos</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero text-center">
+            <div class="container">
+                <h1 id="dyn_titulo" class="display-4 fw-800 mb-3">Carregando qualidade...</h1>
+                <p id="dyn_subtitulo" class="lead mb-4"></p>
+                <a href="#contato" class="btn btn-lg btn-whatsapp">SOLICITAR COTAÇÃO NO WHATSAPP</a>
+            </div>
+        </section>
+
+        <section id="contato" class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card card-sanes p-4">
+                            <h2 class="h4 fw-bold mb-4 text-center" style="color: var(--sanes-green)">Orçamento Rápido</h2>
+                            <form id="orcamentoForm">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Seu Nome / Empresa</label>
+                                    <input type="text" class="form-control" id="nome" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="segmento" class="form-label">Segmento</label>
+                                    <select class="form-select" id="segmento">
+                                        <option value="Restaurante">Restaurante</option>
+                                        <option value="Mercado">Mercado</option>
+                                        <option value="Hotel">Hotel</option>
+                                        <option value="Outro">Outro</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="pedido" class="form-label">O que você precisa?</label>
+                                    <textarea class="form-control" id="pedido" rows="3" placeholder="Ex: 5 caixas de tomate, 2 de cebola..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-whatsapp w-100 py-3">
+                                    ENVIAR E FALAR COM COMERCIAL
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p class="mb-0">© 2026 Sanes Fruit - Distribuidora de Alimentos LTDA.</p>
+            <small>CNPJ: 57.931.153/0001-70 | Rio de Janeiro - RJ</small>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Carrega textos dinâmicos do Painel Administrativo
+        async function fetchContent() {
+            try {
+                const response = await fetch('back/api.php?route=get_home');
+                const data = await response.json();
+                document.getElementById('dyn_titulo').innerText = data.hero_titulo || "Qualidade direto do campo para seu negócio.";
+                document.getElementById('dyn_subtitulo').innerText = data.hero_subtitulo || "A distribuidora que entende a sua urgência.";
+            } catch (e) {
+                document.getElementById('dyn_titulo').innerText = "Qualidade direto do campo para seu negócio.";
+            }
+        }
+
+        // 2. Processa Formulário: Salva no Banco + Abre WhatsApp
+        document.getElementById('orcamentoForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const segmento = document.getElementById('segmento').value;
+            const pedido = document.getElementById('pedido').value;
+
+            // Envio para o Back-end (Registro Interno)
+            const formData = new FormData();
+            formData.append('nome', nome);
+            formData.append('segmento', segmento);
+            formData.append('pedido', pedido);
+
+            try {
+                fetch('back/api.php?route=post_budget', { method: 'POST', body: formData });
+            } catch(err) { console.log("Erro ao salvar no banco, mas seguindo para WhatsApp."); }
+
+            // Redirecionamento para o WhatsApp do Rafael Nunes
+            const numeroZap = "5521996112233"; // Número da empresa
+            const mensagem = `*Novo Orçamento - Sanes Fruit*%0A` +
+                             `*Cliente:* ${nome}%0A` +
+                             `*Segmento:* ${segmento}%0A` +
+                             `*Pedido:* ${pedido}`;
+            
+            window.open(`https://wa.me/${numeroZap}?text=${mensagem}`, '_blank');
+        });
+
+        window.onload = fetchContent;
+    </script>
+</body>
+</html>
