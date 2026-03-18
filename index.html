@@ -3,158 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sanes Fruit - Rdan Distribuidora de Alimentos LTDA. Especialista em Hortifruti no Rio de Janeiro. Qualidade direto do campo.">
-    <title>Sanes Fruit | Distribuidora de Hortifruti RJ</title>
+    <meta name="description" content="Sanes Fruit - Rdan Distribuidora de Alimentos LTDA. Especialista em FLV (Hortifruti) no Rio de Janeiro. Qualidade, pontualidade e transparência.">
+    <meta name="author" content="Sanes Fruit">
+    <title>Sanes Fruit | Qualidade que seu negócio merece</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
         :root {
-            --primary-green: #1B4332; /* Verde Escuro do Vídeo */
-            --accent-green: #2D6A4F;
-            --citric-lime: #D9ED92;   /* Verde Limão dos detalhes */
-            --fresh-orange: #F3722C;  /* Laranja das frutas */
-            --light-bg: #F8F9FA;
-            --white: #FFFFFF;
+            --sanes-dark-green: #1B4332;  /* Identidade Visual Apresentação */
+            --sanes-mid-green: #2D6A4F;
+            --sanes-lime: #D9ED92;       /* Destaque Cítrico */
+            --sanes-orange: #F3722C;     /* Alerta de frescor/CTA */
+            --sanes-white: #FFFFFF;
+            --sanes-gray: #F8F9FA;
         }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--light-bg);
-            color: #333;
-        }
+        body { font-family: 'Inter', sans-serif; color: #333; scroll-behavior: smooth; }
 
-        /* Acessibilidade: Foco visível */
-        :focus { outline: 3px solid var(--fresh-orange); outline-offset: 2px; }
-
-        /* Header e Nav */
-        .navbar { background-color: var(--white); border-bottom: 3px solid var(--primary-green); }
-        .logo-img { max-height: 60px; width: auto; }
-        
-        /* Hero Section */
-        .hero { 
-            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), 
-                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1500') center/cover;
-            color: var(--white);
-            padding: 80px 0;
-        }
-
-        /* Cards e Formulário */
-        .card-budget { 
-            border: none; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-        }
-        .btn-submit { 
-            background-color: var(--primary-green); 
-            color: var(--white); 
-            font-weight: 800; 
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        .btn-submit:hover { background-color: var(--accent-green); color: var(--citric-lime); }
-
-        /* Floating WhatsApp (Referência ao final do vídeo) */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px; height: 60px;
-            border-radius: 50px;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            text-decoration: none;
-        }
-
-        /* WCAG: Pular para Conteúdo */
-        .skip-link { position: absolute; top: -40px; left: 0; background: var(--fresh-orange); color: white; padding: 8px; z-index: 1001; }
+        /* Acessibilidade WCAG: Skip Link */
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--sanes-orange); color: white; padding: 8px; z-index: 1001; text-decoration: none; }
         .skip-link:focus { top: 0; }
+
+        /* UI/UX: Navbar Personalizada */
+        .navbar { background: var(--sanes-white); border-bottom: 4px solid var(--sanes-dark-green); padding: 1rem 0; }
+        .navbar-brand img { height: 55px; width: auto; }
+        .nav-link { color: var(--sanes-dark-green) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover { color: var(--sanes-orange) !important; }
+
+        /* Hero Section Dinâmica */
+        .hero { 
+            background: linear-gradient(rgba(27, 67, 50, 0.9), rgba(27, 67, 50, 0.7)), 
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover;
+            background-position: center;
+            color: var(--sanes-white);
+            padding: 120px 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .fw-800 { font-weight: 800; }
+        .btn-sanes { background: var(--sanes-orange); color: white; border: none; padding: 15px 35px; border-radius: 8px; font-weight: 800; transition: 0.3s; }
+        .btn-sanes:hover { background: #d65d1d; transform: translateY(-2px); color: white; }
+
+        /* Cards de Diferenciais (Baseado na pág 6 da apresentação) */
+        .card-feature { border: none; border-radius: 12px; background: var(--sanes-white); box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; }
+        .card-feature:hover { transform: translateY(-10px); }
+        .icon-box { background: var(--sanes-lime); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; }
+
+        /* Formulário de Orçamento */
+        .budget-section { background: var(--sanes-gray); padding: 80px 0; }
+        .form-control { border-radius: 8px; padding: 12px; border: 1px solid #ddd; }
+        .form-control:focus { border-color: var(--sanes-mid-green); box-shadow: 0 0 0 0.25rem rgba(45, 106, 79, 0.1); }
+
+        /* Floating WhatsApp */
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+
+        footer { background: var(--sanes-dark-green); color: var(--sanes-white); padding: 50px 0; }
     </style>
 </head>
 <body>
 
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
-    <nav class="navbar navbar-expand-lg sticky-top" role="navigation" aria-label="Menu Principal">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="logo_sanes_fruit.png" alt="Sanes Fruit Logo" class="logo-img me-2" onerror="this.src='https://via.placeholder.com/150x60/1B4332/FFFFFF?text=SANES+FRUIT'">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuSanes" aria-controls="menuSanes" aria-expanded="false" aria-label="Abrir menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuSanes">
-                <ul class="navbar-nav ms-auto fw-bold">
-                    <li class="nav-item"><a class="nav-link text-dark" href="#sobre">Sobre a Empresa</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" href="#servicos">Onde Atendemos</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-success ms-lg-3" href="tel:21991473130">Ligar Agora</a></li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top" role="navigation" aria-label="Navegação Principal">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/14132296193571721020_0" 
+                    alt="Logotipo Sanes Fruit - Rdan Distribuidora"  class="logo-img">
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSanes" aria-controls="navSanes" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navSanes">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#beneficios">Benefícios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#parceiros">Parceiros</a></li>
+                        <li class="nav-item"><a class="btn btn-sanes ms-lg-3" href="#contato">Solicitar Cotação</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <main id="main-content">
-        <header class="hero text-center text-lg-start">
-            <div class="container">
+        <section class="hero" aria-labelledby="dyn_titulo">
+            <div class="container text-center text-lg-start">
                 <div class="row align-items-center">
-                    <div class="col-lg-7">
-                        <h1 class="display-3 fw-800 mb-3">Qualidade direto do campo para seu negócio.</h1>
-                        <p class="lead mb-4">Sanes Fruit: A distribuidora de hortifruti que entende a necessidade de mercados, restaurantes e cozinhas industriais.</p>
-                        <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                            <span class="badge bg-light text-dark p-2">✔ Entrega Rápida</span>
-                            <span class="badge bg-light text-dark p-2">✔ Preço Justo</span>
+                    <div class="col-lg-8">
+                        <h1 id="dyn_titulo" class="display-3 fw-800 mb-3">Carregando...</h1>
+                        <p id="dyn_subtitulo" class="lead mb-4"></p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                            <a href="#contato" class="btn btn-sanes">QUERO SER PARCEIRO</a>
+                            <a href="#beneficios" class="btn btn-outline-light px-4 py-3 border-2 fw-bold">VER BENEFÍCIOS</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </section>
 
-        <section id="contato" class="py-5">
+        <section id="beneficios" class="py-5 bg-white">
+            <div class="container py-5 text-center">
+                <h2 class="fw-800 mb-5" style="color: var(--sanes-dark-green);">Por que contratar a Sanes Fruit?</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="card-feature p-4">
+                            <div class="icon-box mx-auto">🚚</div>
+                            <h3 class="h5 fw-bold">Frete Grátis</h3>
+                            <p class="text-muted">Não cobramos frete para entregas em todo o Rio de Janeiro.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="card-feature p-4">
+                            <div class="icon-box mx-auto">⏱</div>
+                            <h3 class="h5 fw-bold">Pontualidade</h3>
+                            <p class="text-muted">Entregas agendadas para que seu negócio nunca pare.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="card-feature p-4">
+                            <div class="icon-box mx-auto">💎</div>
+                            <h3 class="h5 fw-bold">Qualidade Selecionada</h3>
+                            <p class="text-muted">Rendimento e efetividade máxima nas suas preparações.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="budget-section">
             <div class="container">
-                <div class="row g-5">
+                <div class="row g-5 align-items-center">
                     <div class="col-lg-5">
-                        <h2 class="h1 fw-bold mb-4" style="color: var(--primary-green);">Solicite sua Cotação</h2>
-                        <p>Preencha os dados abaixo e a nossa equipe comercial responderá em instantes com os melhores preços do dia.</p>
-                        <div class="p-4 bg-white rounded shadow-sm">
-                            <h5><strong>Sanes Fruit Distribuidora de Alimentos</strong></h5>
-                            <p class="small text-muted mb-0">Rio de Janeiro - RJ</p>
-                            <p class="small text-muted">CNPJ: 57.931.153/0001-70</p>
+                        <h2 class="fw-800" style="color: var(--sanes-dark-green);">Faça seu pedido com quem entende de FLV.</h2>
+                        <p class="mt-4">Nossa seleção é feita durante a madrugada para garantir o frescor que o seu cliente exige.</p>
+                        <div class="mt-5">
+                            <p class="mb-1 fw-bold">Sanes Fruit (Rdan Distribuidora)</p>
+                            <p class="text-muted">CNPJ: 57.931.153/0001-70<br>Rio de Janeiro - RJ</p>
                         </div>
                     </div>
-
                     <div class="col-lg-7">
-                        <div class="card card-budget p-4">
-                            <form id="orcamentoForm" novalidate>
+                        <div class="card p-4 border-0 shadow">
+                            <form id="formOrcamento" novalidate>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="nome" class="form-label">Nome/Empresa</label>
-                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: Mercado Nunes" required>
+                                        <input type="text" id="nome" name="nome" class="form-control" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="whatsapp" class="form-label">WhatsApp de Contato</label>
-                                        <input type="tel" class="form-control" id="whatsapp" name="whatsapp" placeholder="(21) 99999-9999" required>
+                                        <label for="tel" class="form-label">WhatsApp</label>
+                                        <input type="tel" id="tel" name="telefone" class="form-control" placeholder="(21) 9..." required>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="segmento" class="form-label">Tipo de Estabelecimento</label>
-                                    <select class="form-select" id="segmento" name="segmento">
-                                        <option value="restaurante">Restaurante / Catering</option>
-                                        <option value="mercado">Mercado / Mercearia</option>
-                                        <option value="cozinha">Cozinha Industrial / Hospital</option>
-                                        <option value="outro">Outro</option>
-                                    </select>
-                                </div>
                                 <div class="mb-4">
-                                    <label for="mensagem" class="form-label">Quais produtos você precisa?</label>
-                                    <textarea class="form-control" id="mensagem" name="mensagem" rows="4" placeholder="Ex: Preciso de cotação para 10 caixas de tomate e 5 de cebola..."></textarea>
+                                    <label for="msg" class="form-label">O que você precisa hoje?</label>
+                                    <textarea id="msg" name="mensagem" class="form-control" rows="4" placeholder="Ex: Cotação de 20 caixas de tomate..."></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-submit w-100 py-3" id="btnEnviar">ENVIAR PEDIDO DE ORÇAMENTO</button>
+                                <button type="submit" id="btnEnviar" class="btn btn-sanes w-100">SOLICITAR COTAÇÃO AGORA</button>
                             </form>
-                            <div id="feedback" class="mt-3 text-center fw-bold" role="alert" aria-live="polite"></div>
+                            <div id="feedback" class="mt-3 text-center" aria-live="polite"></div>
                         </div>
                     </div>
                 </div>
@@ -162,58 +176,67 @@
         </section>
     </main>
 
-    <footer class="bg-dark text-white py-4 mt-5">
+    <footer>
         <div class="container text-center">
-            <p class="mb-0">© 2026 Sanes Fruit - Todos os direitos reservados.</p>
-            <p class="small text-secondary">A qualidade que você procura está aqui.</p>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/14132296193571721020_0" alt="" style="filter: brightness(0) invert(1); height: 50px;">
+            <p class="mt-4">© 2026 Sanes Fruit - Rdan Distribuidora de Alimentos LTDA.</p>
+            <p class="small opacity-75">Rio de Janeiro - RJ | Comprometimento e Transparência</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/5521991473130" class="whatsapp-float" target="_blank" aria-label="Chamar no WhatsApp">
-        <svg width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
+    <a href="https://wa.me/5521996112233" class="whatsapp-btn" target="_blank" aria-label="Falar no WhatsApp com o comercial">
+        <svg width="35" height="35" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        document.getElementById('orcamentoForm').addEventListener('submit', async function(e) {
+        // 1. Consumo da API para Carregamento Dinâmico (GET)
+        async function fetchContent() {
+            try {
+                const response = await fetch('api/index.php?route=get_home');
+                const data = await response.json();
+                
+                document.getElementById('dyn_titulo').innerText = data.hero_titulo || "Qualidade direto do campo para seu negócio.";
+                document.getElementById('dyn_subtitulo').innerText = data.hero_subtitulo || "Entregas pontuais e produtos selecionados em todo o Rio de Janeiro.";
+            } catch (error) {
+                // Fallback caso a API ainda não esteja online
+                document.getElementById('dyn_titulo').innerText = "Qualidade direto do campo para seu negócio.";
+                document.getElementById('dyn_subtitulo').innerText = "Sanes Fruit: Distribuição de hortifruti com excelência e transparência.";
+            }
+        }
+
+        // 2. Envio de Orçamento para a API (POST)
+        document.getElementById('formOrcamento').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
             const btn = document.getElementById('btnEnviar');
             const feedback = document.getElementById('feedback');
-            const formData = new FormData(this);
-
+            
             btn.disabled = true;
-            btn.innerHTML = "Processando...";
-            feedback.innerHTML = "";
+            btn.innerHTML = "Enviando...";
 
             try {
-                // Ajuste o caminho para a sua API PHP
-                const response = await fetch('back/api.php', {
+                const formData = new FormData(this);
+                const response = await fetch('api/index.php?route=post_budget', {
                     method: 'POST',
                     body: formData
                 });
-
-                const data = await response.json();
-
-                if(data.status === 'sucesso') {
-                    feedback.className = "mt-3 text-success";
-                    feedback.innerHTML = "✔ " + data.msg;
+                const res = await response.json();
+                
+                if(res.status === 'sucesso') {
+                    feedback.className = "mt-3 text-success fw-bold";
+                    feedback.innerText = "✔ Orçamento enviado! O Rafael ou a equipe comercial entrará em contato.";
                     this.reset();
-                } else {
-                    feedback.className = "mt-3 text-danger";
-                    feedback.innerHTML = "❌ Erro ao enviar. Tente novamente.";
                 }
-            } catch (error) {
+            } catch (err) {
                 feedback.className = "mt-3 text-danger";
-                feedback.innerHTML = "❌ Erro de conexão com o servidor.";
+                feedback.innerText = "Houve um erro no envio. Tente o WhatsApp abaixo.";
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = "ENVIAR PEDIDO DE ORÇAMENTO";
+                btn.innerHTML = "SOLICITAR COTAÇÃO AGORA";
             }
         });
+
+        window.onload = fetchContent;
     </script>
 </body>
 </html>
