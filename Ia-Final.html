@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA + VOCÊ = FUTURO | Simone Nunes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --orange: #ff6b00;
+      --blue: #09162d;
+      --dark: #030712;
+      --light: #ffffff;
+      --glass: rgba(255,255,255,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: var(--light);
+      overflow-x: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .presentation {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .7s ease;
+      padding: clamp(8px, 1.5vw, 24px);
+      overflow-y: auto;
+      background:
+      radial-gradient(circle at top right, rgba(255,107,0,.15), transparent 30%),
+      radial-gradient(circle at bottom left, rgba(59,130,246,.2), transparent 40%),
+      linear-gradient(135deg,#020617,#0f172a);
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 10;
+    }
+
+    .content {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding-bottom: 40px;
+      animation: fade .8s ease;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 5.5rem);
+      line-height: 1;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 3.2rem);
+      color: var(--orange);
+      margin-bottom: 30px;
+      border-left: 8px solid var(--orange);
+      padding-left: 20px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      font-size: clamp(1rem, 1.3vw, 1.25rem);
+      line-height: 1.8;
+      color: #e2e8f0;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 60vh;
+      padding-bottom: 18px;
+    }
+
+    .hero h1 {
+      background: linear-gradient(135deg,#fff,#ffb36b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.8rem;
+      opacity: .9;
+      max-width: 900px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 12px;
+      transition: .4s;
+    }
+
+    .card img {
+      width: 100%;
+      height: clamp(80px, 10vw, 130px);
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--orange);
+      box-shadow: 0 20px 40px rgba(255,107,0,.15);
+    }
+
+    .big-quote {
+      font-size: clamp(2rem,5vw,4rem);
+      font-weight: 700;
+      text-align: center;
+      color: #fff;
+      line-height: 1.4;
+      margin-top: 10vh;
+    }
+
+    .highlight {
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      max-width: 950px;
+      margin: 8px auto;
+      padding-bottom: 34%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 3px solid var(--orange);
+      box-shadow: 0 20px 50px rgba(0,0,0,.5);
+    }
+
+    .video-box iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .timeline {
+      margin-top: 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      background: rgba(255,255,255,.05);
+      border-left: 5px solid var(--orange);
+      padding: 10px;
+      border-radius: 16px;
+    }
+
+    .question-box {
+      background: rgba(255,255,255,.06);
+      border-radius: 24px;
+      padding: 14px;
+      margin: 8px 0;
+      cursor: pointer;
+      transition: .4s;
+    }
+
+    .question-box:hover {
+      background: rgba(255,107,0,.15);
+    }
+
+    .answer {
+      display: none;
+      margin-top: 15px;
+      color: #ffd28c;
+      font-weight: 600;
+    }
+
+    .question-box.active .answer {
+      display: block;
+    }
+
+    .qr-box {
+      background: white;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 24px;
+      margin-top: 30px;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 25px;
+      right: 30px;
+      display: flex;
+      gap: 15px;
+      z-index: 999;
+    }
+
+    .btn {
+      background: rgba(255,255,255,.1);
+      border: none;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: .3s;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: var(--orange);
+      transform: scale(1.05);
+    }
+
+    .counter {
+      position: fixed;
+      bottom: 25px;
+      left: 30px;
+      background: rgba(0,0,0,.5);
+      padding: 10px 18px;
+      border-radius: 999px;
+      z-index: 999;
+      font-size: .95rem;
+    }
+
+    .music-box {
+      background: rgba(255,107,0,.08);
+      border: 2px dashed var(--orange);
+      padding: 30px;
+      border-radius: 24px;
+      margin-top: 40px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .reflection {
+      font-size: 1rem;
+      text-align: center;
+      font-weight: 600;
+      margin-top: 35px;
+      color: #fde68a;
+    }
+
+    /* RESPONSIVIDADE AVANÇADA */
+
+    img, iframe, video {
+      display:block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .content {
+      width: 100%;
+    }
+
+    .grid {
+      align-items: stretch;
+    }
+
+    .card, .question-box, .timeline-item {
+      width: 100%;
+    }
+
+    .video-box {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @media (max-width: 1200px) {
+      h1 {
+        font-size: clamp(2.8rem, 6vw, 5rem);
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      p, li {
+        font-size: 1.15rem;
+      }
+    }
+
+    @media (max-width: 1366px) {
+      .hero img {
+        max-height: 22vh;
+        object-fit: cover;
+      }
+
+      .card img {
+        height: 160px !important;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .slide {
+        padding: 10px 12px 55px;
+      }
+
+      .hero img {
+        max-height: 120px;
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .slide {
+        padding: 35px 25px;
+      }
+
+      .hero {
+        height: auto;
+        padding-top: 40px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .big-quote {
+        margin-top: 4vh;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+      }
+
+      .nav {
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .counter {
+        left: 15px;
+        bottom: 15px;
+      }
+    }
+
+    @media(max-width:768px){
+      .slide {
+        min-height: auto;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero img {
+        width: 100%;
+        max-height: 170px;
+        object-fit: cover;
+      }
+
+      .content {
+        padding-bottom: 80px;
+      }
+      body {
+        overflow: auto;
+      }
+
+      .slide {
+        padding: 25px 18px 100px;
+      }
+
+      h1 {
+        line-height: 1.1;
+      }
+
+      h2 {
+        border-left-width: 5px;
+        padding-left: 12px;
+      }
+
+      p,li {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .subtitle {
+        font-size: 1.15rem;
+      }
+
+      .btn {
+        padding: 12px 18px;
+        font-size: .9rem;
+      }
+
+      .qr-box img {
+        width: 220px;
+      }
+
+      audio {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero img {
+        max-height: 220px;
+        object-fit: cover;
+      }
+
+      .card img {
+        height: 140px !important;
+      }
+
+      .question-box,
+      .card,
+      .timeline-item {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slide {
+        padding: 8px 10px 55px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .big-quote {
+        font-size: 1.4rem;
+      }
+
+      .reflection {
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .nav {
+        width: calc(100% - 30px);
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="presentation">
+
+  <!-- Slide 1 -->
+  <section class="slide active" id="slide1">
+    <div class="content hero">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1400&auto=format&fit=crop" style="width:50%; max-width:950px; border-radius:30px; margin-bottom:40px; box-shadow:0 25px 60px rgba(0,0,0,.45); border:3px solid rgba(255,255,255,.1);">
+      <div style="font-size: 3rem; margin-bottom:15px;">🤖</div>
+      <h1>IA + VOCÊ = FUTURO</h1>
+      <p class="subtitle">Inteligência Artificial para todos</p>
+
+      <div style="margin-top:50px; font-size:1.2rem; opacity:.9;">
+        <p><strong>Simone Nunes</strong> • SENAC RJ</p>
+     
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 2 -->
+  <section class="slide" id="slide2">
+    <div class="content">
+      <h2>🌍 O MUNDO MUDOU</h2>
+    <div class="video-box" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+   <iframe 
+  width="1013" 
+  height="570" 
+  src="https://www.youtube.com/embed/C38xlWnkezQ?rel=0" 
+  title="Como a IA vai mudar tudo" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+    </div>
+      <p style="text-align:center; margin-top:20px; font-style:italic;">
+        “A IA será para este século o que a eletricidade foi para o século passado.”
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 3 -->
+  <section class="slide" id="slide3">
+    <div class="content">
+      <h2>🧠 IA É PARA TODAS AS GERAÇÕES</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=900&auto=format&fit=crop" style="width:100%; height:180px; object-fit:cover; border-radius:18px; margin-bottom:20px;">
+          <h3>Crianças</h3>
+          <p>IA desperta curiosidade, criatividade, aprendizado e imaginação desde cedo.</p>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=900&auto=format&fit=crop" style="width:100%; height:180px; object-fit:cover; border-radius:18px; margin-bottom:20px;">
+          <h3>Jovens</h3>
+          <p>IA acelera aprendizado, criatividade, carreira e empreendedorismo.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=900&auto=format&fit=crop" style="width:100%; height:180px; object-fit:cover; border-radius:18px; margin-bottom:20px;">
+          <h3>Adultos</h3>
+          <p>IA reduz tempo, aumenta produtividade e abre novos mercados.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=900&auto=format&fit=crop" style="width:100%; height:180px; object-fit:cover; border-radius:18px; margin-bottom:20px;">
+          <h3>Idosos</h3>
+          <p>IA preserva conhecimento, memória, legado e inclusão digital.</p>
+        </div>
+      </div>
+      <div class="reflection">A IA já faz parte da vida de crianças, jovens, adultos e idosos.<br>O futuro será construído por todas as gerações juntas.</div>
+    </div>
+  </section>
+
+  <!-- Slide 4 -->
+  <section class="slide" id="slide4">
+    <div class="content">
+      <h2>⚡ DINÂMICA INTERATIVA</h2>
+      <p>Clique nos cards e pergunte para a plateia: <span class="highlight">Substituído ou Potencializado?</span></p>
+
+      <div class="grid">
+        <div class="question-box" onclick="this.classList.toggle('active')">
+          <h3>👨‍⚕️ Médico</h3>
+          <div class="answer">POTENCIALIZADO → A IA analisa dados. O humano salva vidas com empatia.</div>
+        </div>
+
+        <div class="question-box" onclick="this.classList.toggle('active')">
+          <h3>💻 Programador</h3>
+          <div class="answer">POTENCIALIZADO → A IA gera código, mas o humano resolve problemas reais.</div>
+        </div>
+
+        <div class="question-box" onclick="this.classList.toggle('active')">
+          <h3>🛒 Caixa de Mercado</h3>
+          <div class="answer">TRANSFORMAÇÃO → O foco sai do operacional e vai para relacionamento e experiência.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 5 -->
+  <section class="slide" id="slide5">
+    <div class="content">
+      <h2>⏳ O GANHO REAL DE TEMPO</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>📊 Relatórios</h3>
+          <p>Antes: 4 horas • Agora: 10 minutos</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>📧 E-mails Profissionais</h3>
+          <p>Antes: 20 minutos • Agora: 30 segundos</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>🎨 Criação de Artes</h3>
+          <p>Antes: dias • Agora: minutos</p>
+        </div>
+      </div>
+
+      <div class="reflection">O que você faria com 10 horas livres por semana?</div>
+    </div>
+  </section>
+
+  <!-- Slide 6 -->
+  <section class="slide" id="slide6">
+    <div class="content">
+      <h2>🎨 IA TAMBÉM CRIA</h2>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/OzcKfyb5j5g?rel=0&modestbranding=1" allowfullscreen></iframe>
+      </div>
+      <p style="text-align:center;">Vídeos, imagens, músicas, apresentações e ideias surgindo em segundos.</p>
+    </div>
+  </section>
+
+  <!-- Slide 7 -->
+  <section class="slide" id="slide7">
+    <div class="content">
+      <h2>💬 A NOVA HABILIDADE: SABER PERGUNTAR</h2>
+
+      <div class="card" style="margin-top:30px; border-left:6px solid var(--orange);">
+        <p style="font-style:italic;">
+          “Atue como um mentor de carreira e me ajude a criar um plano de estudos de 3 meses para trabalhar com tecnologia e IA.”
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Prompt Fraco</h3>
+          <p>“Me ajuda.”</p>
+        </div>
+
+        <div class="card">
+          <h3>Prompt Inteligente</h3>
+          <p>Contexto + objetivo + público + resultado esperado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 8 -->
+  <section class="slide" id="slide8">
+    <div class="content">
+      <h2>🧩 DINÂMICA REFLEXIVA</h2>
+
+      <div class="big-quote">
+        “Se você tivesse um assistente genial que nunca dorme...<br>
+        <span class="highlight">o que você pediria para ele fazer hoje?</span>”
+      </div>
+
+      <div class="reflection">Converse com a pessoa ao lado por 2 minutos.</div>
+    </div>
+  </section>
+
+  <!-- Slide 9 -->
+  <section class="slide" id="slide9">
+    <div class="content">
+      <h2>🚀 O FUTURO COMEÇA AGORA</h2>
+
+      <div class="card" style="margin-bottom:30px; text-align:center; background:rgba(255,255,255,.06);">
+        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1400&auto=format&fit=crop" style="width:60%; max-height:320px; object-fit:cover; border-radius:20px; margin-bottom:20px;">
+        <p style="font-size:1.5rem;">
+          Crianças aprendendo com IA hoje podem criar profissões que ainda nem existem amanhã.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=900&auto=format&fit=crop" style="width:60%; height:180px; object-fit:cover; border-radius:18px; margin-bottom:20px;">
+          <h3>🎮 Criador de Experiências IA</h3>
+          <p>Profissionais que unem criatividade, tecnologia e emoção.</p>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=900&auto=format&fit=crop" style="width:60%; height:180px; object-fit:cover; border-radius:18px; margin-bottom:20px;">
+          <h3>🧠 Curador de IA</h3>
+          <p>Pessoas que treinam, avaliam e supervisionam inteligências artificiais.</p>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=900&auto=format&fit=crop" style="width:60%; height:180px; object-fit:cover; border-radius:18px; margin-bottom:20px;">
+          <h3>🤝 Mentor Humano</h3>
+          <p>Empatia, comunicação e liderança serão ainda mais valiosas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 10 -->
+  <section class="slide" id="slide10">
+    <div class="content">
+      <h2>🎥 O FUTURO JÁ COMEÇOU</h2>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/L4p9jPxG5Qs?rel=0&modestbranding=1" allowfullscreen></iframe>
+      </div>
+      <p style="text-align:center;">Quem aprende IA hoje terá vantagem amanhã.</p>
+    </div>
+  </section>
+
+  <!-- Slide 11 -->
+  <section class="slide" id="slide11">
+    <div class="content">
+      <h2>⚖️ A IA PRECISA DE HUMANIDADE</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>❤️ Empatia</h3>
+          <p>Máquinas calculam. Humanos acolhem.</p>
+        </div>
+
+        <div class="card">
+          <h3>🧭 Ética</h3>
+          <p>Nem tudo que pode ser feito deve ser feito.</p>
+        </div>
+
+        <div class="card">
+          <h3>🧠 Pensamento Crítico</h3>
+          <p>A IA responde rápido. O humano precisa questionar.</p>
+        </div>
+      </div>
+
+      <div class="reflection">A tecnologia mais poderosa ainda é o ser humano consciente.</div>
+    </div>
+  </section>
+
+  <!-- Slide 12 -->
+  <section class="slide" id="slide12">
+    <div class="content" style="text-align:center;">
+      <h2>📱 KIT DE PROMPTS</h2>
+
+      <p>Escaneie o QR Code para baixar gratuitamente os <span class="highlight">50 Prompts de Aprendizado e Mercado</span>.</p>
+
+      <div class="qr-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=50_prompts_aprendizado_mercado.pdf" alt="QR Code Prompts">
+      </div>
+
+      <div style="margin-top:25px;">
+        <a href="50_prompts_aprendizado_mercado.pdf" download style="background:#ff6b00; color:white; padding:16px 28px; border-radius:999px; text-decoration:none; font-weight:700; font-size:1.1rem; display:inline-block;">
+          ⬇ Baixar PDF dos 50 Prompts
+        </a>
+      </div>
+
+      <p style="margin-top:25px;">Use os prompts para estudar, trabalhar, criar projetos e refletir sobre o futuro.</p>
+    </div>
+  </section>
+
+  <!-- Slide 13 -->
+  <section class="slide" id="slide13">
+    <div class="content">
+      <h2>🪞 MOMENTO DE REFLEXÃO</h2>
+
+      <div class="big-quote">
+        “Daqui há 5 anos…<br>
+        você quer dizer que teve medo da tecnologia?<br>
+        <span class="highlight">Ou que decidiu aprender?</span>”
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 14 -->
+  <section class="slide" id="slide14">
+    <div class="content">
+      <h2>🙌 COMPROMISSO COM O FUTURO</h2>
+
+      <div class="question-box" onclick="this.classList.toggle('active')">
+        <h3>1️⃣ Quem vai testar uma IA amanhã?</h3>
+        <div class="answer">🙋 O futuro pertence aos curiosos.</div>
+      </div>
+
+      <div class="question-box" onclick="this.classList.toggle('active')">
+        <h3>2️⃣ Quem vai ensinar outra pessoa?</h3>
+        <div class="answer">🤝 Conhecimento compartilhado transforma vidas.</div>
+      </div>
+
+      <div class="question-box" onclick="this.classList.toggle('active')">
+        <h3>3️⃣ Quem quer construir um futuro melhor com tecnologia?</h3>
+        <div class="answer">🚀 A IA precisa de pessoas humanas, criativas e conscientes.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 15 -->
+  <section class="slide" id="slide15">
+    <div class="content" style="text-align:center; margin-top:5vh;">
+      <h1>OBRIGADA! 💙</h1>
+      <p style="font-size:1.5rem;">Simone Nunes • SENAC RJ</p>
+
+      <div class="music-box">
+        <h3>🎵 Música Final da Palestra</h3>
+        <p>“Inteligência Artificial – Chama no Amanhã”</p>
+
+        <audio controls autoplay>
+          <source src="Inteligência Artificial -Chama no Amanhã.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <div class="reflection">“A melhor maneira de prever o futuro é criá‑lo.”</div>
+    </div>
+  </section>
+
+  <div class="nav">
+    <button class="btn" onclick="prevSlide()">◀ Anterior</button>
+    <button class="btn" onclick="nextSlide()">Próximo ▶</button>
+  </div>
+
+  <div class="counter" id="counter">Slide 1 / 15</div>
+
+</div>
+
+<script>
+  let current = 1;
+  const total = 15;
+
+  function showSlide(n){
+    document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+
+    const active = document.getElementById('slide'+n);
+    if(active){
+      active.classList.add('active');
+    }
+
+    document.getElementById('counter').innerText = `Slide ${n} / ${total}`;
+
+    document.querySelectorAll('iframe').forEach(frame => {
+      const src = frame.src;
+      frame.src = src;
+    });
+
+    current = n;
+  }
+
+  function nextSlide(){
+    if(current < total){
+      showSlide(current + 1);
+    } else {
+      showSlide(1);
+    }
+  }
+
+  function prevSlide(){
+    if(current > 1){
+      showSlide(current - 1);
+    } else {
+      showSlide(total);
+    }
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight' || e.key === ' '){
+      nextSlide();
+    }
+
+    if(e.key === 'ArrowLeft'){
+      prevSlide();
+    }
+  });
+</script>
+
+</body>
+</html>
